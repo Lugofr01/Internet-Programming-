@@ -90,7 +90,7 @@ function printNPrimes() {
         for (var q of getNPrimes(n)) {
             var tableinfo=document.querySelector("tbody");
             var row_next=tableinfo.insertRow();
-            nextRow.innerText=`${q}`;
+            row_next.innerText=`${q}`;
 
 
 
