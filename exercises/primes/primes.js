@@ -5,22 +5,56 @@
 var urlParams = new URLSearchParams(window.location.search);
 
 function greet() {
-    const searchstring= window.location.search;
+    const queryString= window.location.search;
 
-    const URLparameter= new URLSearchParams(searchstring);
-    const nameinfo = URLparameter.get('name')||'student';
-    let salutations= document.searchstring("h1");
+    const urlParams= new URLSearchParams(queryString);
+    const nameinfo = urlParams.get('name')||'student';
+    let salutations= document.querySelector("h1");
 
-    salutations.innerText ='Hi',  ${nameinfo};
+    salutations.innerText =`Hello ${nameinfo}`;
 
 
 }
 
 function isPrime(n) {
+
+
+    for (var p=2; p<n;p++ )
+        if (n % p==0){
+
+            return false;
+
+
+
+        }
+    return n>1;
+
+
+
 }
 
 function printPrimeNumber() {
-}
+    const queryString= window.location.search;
+
+    const urlParams=new URLSearchParams(queryString);
+
+    const n=urlParams.get('n')||330;
+
+
+
+    if (isPrime(n)){
+
+
+        document.querySelector("#primeinfo").innerText=`${n} is a prime number`;
+    }
+    else {
+        document.querySelector("#primeinfo").innerText=`${n} is a prime number`;
+    }
+    }
+
+
+
+
 
 function getNPrimes(n) {
 }
