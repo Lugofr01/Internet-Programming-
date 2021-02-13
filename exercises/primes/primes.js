@@ -74,6 +74,30 @@ function getNPrimes(n) {
 }
 
 function printNPrimes() {
+    const queryString = window.location.search;
+    const  urlParams = new URLSearchParams(queryString);
+
+    /* As seen on the youtube videos*/
+
+    const n=urlParams.get('n')||330;
+    /*chooses 330 as default or get something from the projected value n*/
+
+    let thead=document.querySelector("thead");
+    /*this retrievs the htm tag for table head*/
+
+    thead.innerHTML=`First ${n} primes`;
+
+        for (var q of getNPrimes(n)) {
+            var tableinfo=document.querySelector("tbody");
+            var row_next=tableinfo.insertRow();
+            nextRow.innerText=`${q}`;
+
+
+
+
+        }
+    
+    
 }
 
 window.onload = function() {
