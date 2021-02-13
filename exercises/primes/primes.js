@@ -57,6 +57,20 @@ function printPrimeNumber() {
 
 
 function getNPrimes(n) {
+
+    var primes_in = [];
+
+    var f=2;
+
+    for (var p=0;p<n;p++){
+        while(primes_in.length<n){
+
+            if(isPrime(f)) primes_in.push(f);
+
+            f++
+        }
+    }
+    return primes_in
 }
 
 function printNPrimes() {
