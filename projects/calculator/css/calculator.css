@@ -1,0 +1,36 @@
+.button{
+    margin:5.5%;
+    padding:4.7%;
+    font-size: x-large;
+}
+.btn-secondary {
+    width: 20;
+    width: 132px;
+    font-size: x-large;
+}
+.btn-warning {
+    width: 99px;
+    font-size: x-large;
+}
+.keys{
+    margin:0.5%;
+    padding:0.5%;
+    font-size: x-large;
+}
+#btnEql{
+    width:235px;
+    font-size: x-large;
+}
+#btnClr{
+    width:405px;
+    font-size: x-large;
+}
+.IOS_screen{
+    background-color: grey;
+    width: 510px;
+    margin-left: 15px;
+}
+#result{
+    color:white;
+    font-size: x-large;
+}
