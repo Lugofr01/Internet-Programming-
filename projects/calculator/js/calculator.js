@@ -21,7 +21,19 @@ function clear_screen() {
 }
 
 function eval_expr() {
-    
+    let operation_eval = (screen.innerHTML.match(/\+/g) || []).length;
+    if (operation_eval>1){
+        screen.innerHTML= "ERROR";
+
+
+    }
+    else{
+        let a = screen.innerHTML
+        let f = String(a)
+        let u = eval(f)
+        document.querySelector("#result").innerHTML=`${u}`
+
+    }        
 }
 
 function enterOp(operation) {
