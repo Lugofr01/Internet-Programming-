@@ -1,11 +1,16 @@
+
 .critical {
+    background-color: red;
 }
 
 .important {
+    background-color: orangered;
 }
 
 .normal {
+    background-color: ;
 }
 
 .low {
+    background-color: ;
 }
