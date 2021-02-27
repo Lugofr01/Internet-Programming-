@@ -18,7 +18,7 @@
 .form-indent {
     margin: auto;
     width: 100%;
-    background-color: honeydew;
+    background-color: rgb(191, 226, 191);
     padding: 11px;
     text-align: center;
 
@@ -52,31 +52,39 @@ h1{
 .form_due{
     margin: 2.7px;
     padding: 2.7;
+    
 }
+
+
+
 #title{
     margin: 6px;
 }
 #assignedTo{
-    margin: 0 60px;
+    margin: 0.5%;
+    margin-left: 0 60xpx;
     width: 110px;
 
 }
 #priority{
-    margin: 0 50px;
-    width: 190;
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 110px;
 }
 #dueDate{
-    margin: 0 60px;
-
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 110px;
 
 }
 
 #taskList{
     margin: left;
-    padding: 25px;
+    padding: 20px;
+    text-align: left;
 }
 #addTaskBtn{
-    margin-left: 0px;
-    width: 100%;
+    margin-left: -15px;
+    width: 104%;
     margin-top: 20px;
 }
