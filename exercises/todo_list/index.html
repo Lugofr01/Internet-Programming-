@@ -11,37 +11,37 @@
         <h1>TODO List</h1>
         <div class="container">
             <form id="newTask">
-            <div>
+            <div class="form-indent">
                 <div>
-                    <label for="title">Task</label>
+                    <label for="title" class="form_title">Task</label>
                     <input id="title" required />
                 </div>
 
                 <div>
-                    <label for="assignedTo">Assigned to</label>
-                    <select id="assignedTo"></select>
+                    <label for="assignedTo" class="form_assign">Assigned to</label>
+                    <select id="assignedTo" class="btn btn-primary"></select>
                 </div>
 
                 <div>
-                    <label for="priority">Priority</label>
-                    <select id="priority"></select>
+                    <label for="priority" class="form_priority">Priority</label>
+                    <select id="priority" class="btn btn-default"></select>
                 </div>
 
-                <div>
-                    <label for="dueDate">Due date</label>
-                    <input id="dueDate" required />
+                <div class="Due">
+                    <label for="dueDate" class="form_due">Due date</label>
+                    <input id="dueDate" type="date" class="btn btn-danger" required />
                 </div>
             </div>
             <div>
-                <button type="button" id="addTaskBtn" onclick="addTask()">Add task</button>
+                <button type="button" id="addTaskBtn" onclick="addTask()" class="btn btn-primary">Add task</button>
             </div>
         </form>
     </div>
     </div>
 
     <div class="container">
-        <table id="taskList">
-            <thead>
+        <table id="taskList" class="table">
+            <thead class="thead-light">
                 <tr>
                     <th></th>
                     <th>Task</th>
