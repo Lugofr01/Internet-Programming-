@@ -48,7 +48,8 @@ function removePlayer() {
 }
 
 
-function loadAll(){
+function loadPlayer(){
+    console.log("fuck")
     let play_list=localStorage.getItem("local_storage");
     if (play_list){
         play_list=JSON.parse(play_list);
@@ -66,10 +67,9 @@ function loadAll(){
             for(let index in item){
                 let pdata = document.createElement("td");
                 pdata.innerHTML=item[index];
-                pdata.style.padding="20px";
-                row.appendChild(td);
+                row.appendChild(pdata);
             }
-            pleague.appendChild(row);
+        pleague.appendChild(row);
         document.querySelector("#allPlayers").appendChild(pleague); 
 
         }
