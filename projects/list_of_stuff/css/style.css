@@ -1,0 +1,148 @@
+
+.critical {
+    background-color: red;
+}
+
+.important {
+    background-color: rgba(255, 94, 0, 0.925);
+}
+
+.normal {
+    background-color: green;
+}
+
+.low {
+    background-color:gold ;
+}
+
+
+
+.form_main{
+
+    margin: auto;
+    width: 100%;
+    background-color: rgba(15, 35, 148, 0.068);
+    padding: 11px;
+    text-align: center;
+    color:white;
+    font-size: 1.5rem;
+   
+
+
+}
+body{
+    background-image: url('https://www.lance.com.br/files/article_main/uploads/2020/12/11/5fd3967959798.jpeg');
+
+    margin: auto;
+    
+
+    
+  }
+  
+.form_title{
+    margin: 0.5%;
+    padding: 2.7;
+    width: 110px;
+    
+}
+h1{
+    color: blanchedalmond;
+}
+
+
+.form_nationality{
+    margin: 0.5%;
+    padding: 2.7;
+    width: 110px;
+    color:white;
+    font-size: 1.5rem;
+    
+}
+
+.form_team{
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 110px;
+     color:white;
+    font-size: 1.5rem;
+    
+}
+
+
+
+title{
+    margin: 6px;
+}
+
+
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font: size 0.005%
+
+}
+
+
+
+   
+#listingtable{
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 200px;
+    color: black;
+
+}
+#playerNation{
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 200px;
+    color: black;
+
+}
+#playerTeam{
+    margin: 0.5%;
+    margin-left: 0 60xpx;
+    width: 150px;
+    color: black;
+}
+
+
+
+#allPlayers{
+    margin: 0.5%;
+    margin-right: -90px;
+    padding: 20px;
+    text-align: left;
+    color:white;
+    font-size: 1.5rem;
+}
+#btnAdd{
+    margin-left: -15px;
+    width: 104%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: blue;
+
+}
+
+#btnLoad{
+    margin-left: -15px;
+    width: 104%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: blue;
+}
+
+#btnSave{
+    margin-left: -15px;
+    width: 104%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: blue;
+}
+#btnRemove{
+    margin-left: -15px;
+    width: 104%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: blue;
+}

@@ -72,7 +72,7 @@ function addRow(valueList, parent) {
 
 
 function removeRow() {
-    $("#taskList input[type='checkbox']:checked").closest("tr").remove();
+    document.querySelector("#taskList input[type='checkbox']:checked").closest("tr").remove();
 }
 
 function populateSelect(selectId, sList) {
