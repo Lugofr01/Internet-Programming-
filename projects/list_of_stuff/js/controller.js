@@ -83,4 +83,5 @@ function loadPlayer(){
 window.onload = function() {
     populateSelect(document.querySelector("#playerNation"), nationTypes);
     populateSelect(document.querySelector("#playerTeam"),teams);
+    loadPlayer();
 };
