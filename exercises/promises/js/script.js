@@ -2,18 +2,18 @@
 /* jshint browser: true */
 /* jshint node: true */
 'use strict';
-async function get_individual(num, all_numbers) {
+async function get_individual(val, all_numbers) {
     all_numbers.innerHTML="";
     for (let x=0; x<3; x++){
         let position=0;
         if (x===0){
-            position=num-1;
+            position=val-1;
         }
         else if (x===1) {
-            position=num;
+            position=val;
             
         } else {
-            position=num+1;
+            position=val+1;
            
         }
         let number = await fetch(`http://numbersapi.com/${position}?json`)
