@@ -35,19 +35,19 @@ async function get_individual(num, all_numbers) {
 
 async function get_batch(num, all_numbers) {
     all_numbers.innerHTML="";
-    let number = await fetch(`http://numbersapi.com/${position-1}..${position+1}?json`)
+    let number = await fetch(`http://numbersapi.com/${position-1}..${positiongit+1}?json`)
      .then(response => response.json());
     for (let item in number){
         let line=document.createElement("div");
-        let div1=document.createElement("div");
-        let div2=document.createElement("div");
+        let firstd=document.createElement("div");
+        let secondd=document.createElement("div");
         line.classList.add("content");
-        div1.classList.add("namba");
-        div2.classList.add("kuhusu");
-        div1.innerHTML=item;
-        div2.innerHTML=number[item];
-        line.appendChild(div1);
-        line.appendChild(div2);
+        firstd.classList.add("namba");
+        secondd.classList.add("kuhusu");
+        firstd.innerHTML=item;
+        secondd.innerHTML=number[item];
+        line.appendChild(firstd);
+        line.appendChild(secondd);
         all_numbers.appendChild(line);
     }
 }
