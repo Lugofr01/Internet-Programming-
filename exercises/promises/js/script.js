@@ -33,19 +33,19 @@ async function get_individual(num, all_numbers) {
     }
 }
 
-async function get_batch(num, all_numbers) {
+async function get_batch(oov, all_numbers) {
     all_numbers.innerHTML="";
     let number = await fetch(`http://numbersapi.com/${position-1}..${positiongit+1}?json`)
      .then(response => response.json());
-    for (let item in number){
+    for (let val in number){
         let line=document.createElement("div");
         let firstd=document.createElement("div");
         let secondd=document.createElement("div");
         line.classList.add("content");
         firstd.classList.add("namba");
         secondd.classList.add("kuhusu");
-        firstd.innerHTML=item;
-        secondd.innerHTML=number[item];
+        firstd.innerHTML=val;
+        secondd.innerHTML=number[val];
         line.appendChild(firstd);
         line.appendChild(secondd);
         all_numbers.appendChild(line);
@@ -53,11 +53,11 @@ async function get_batch(num, all_numbers) {
 }
 
 async function clickedon() {
-    let num = parseInt(document.querySelector('#number').value);
+    let oov = parseInt(document.querySelector('#number').value);
     let all_numbers = document.querySelector('#number_info');
     if (document.querySelector('#batch').checked) {
-        get_batch(num, all_numbers);
+        get_batch(oov, all_numbers);
     } else {
-        get_individual(num, all_numbers);
+        get_individual(oov, all_numbers);
     }
 }
