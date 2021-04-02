@@ -18,7 +18,7 @@ def index():
 @app.route("/", methods=["POST"])
 def index_jokes():
     if  "language"in request.form and "category" in request.form:
-        return render_template("base.html", result = send_joke(language=request.form.get("language"), category=request.form.get("category")))
+        return render_template("base.html", ans = send_joke(language=request.form.get("language"), category=request.form.get("category")))
     else :
         raise "No data to process"
 
@@ -35,4 +35,4 @@ def send_joke(
 
 
 
-#sources 
+#sources https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request, https://pythonprogramming.net/flask-get-post-requests-handling-tutorial/
