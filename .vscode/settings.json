@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3",
+    "python.pythonPath": "/Users/anghyaragon/Desktop/lugofr01/.venv/bin/python3",
     "python.formatting.provider": "black"
 }
