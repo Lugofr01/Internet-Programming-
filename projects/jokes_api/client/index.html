@@ -1,101 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
+<head>
+    <title>Flask for Fun</title>
+    <!-- CSS only -->
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
 
-        <head>
-
-
-
-        <script src="script.js"></script>
-        </head>
-
-
-
-    <body>
-        <div class="container"> 
-            <h1> WELCOME JOKER!</h1>
+<body>
+    <div class="p-3 mb-2 bg-info text-dark">
+        <div><a href="/">Home</a></div>
+        <div>
+            <h2 class="display-1"> Pick the category, language, and number of jokes to hear</h2>
         </div>
-
-
-        <div class="container" >
-        <form accept="GET" id="random_joke" class="row">
-
+        <form method="POST">
             <div>
-                <button class="btn btn secondary" type="button" name="random_joke" value="random_joke" 
-
-                    onClick ="requestRandomJoke()"> Get some random joke
-
-
-                </button>
+                <div>
+                    <label for="category" value="Category">Category</label>
+                    <select name="category" id="selCat">
+                        <!-- TODO: Populate categories -->
+                        <option value="neutral">Neutral</option>
+                        <option value="chuck">Chuck Norris</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="language" value="Language">Language</label>
+                    <select name="language" id="selLang">
+                        <!-- TODO: Populate languages -->
+                        <option value="en">en</option>
+                        <option value="de">de</option>
+                        <option value="es">es</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="number" value="Number">Number</label>
+                    <select name="number" id="selNum">
+                        <!-- TODO: Populate numbers -->
+                        <option value="1">1</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="submit" class ="btn btn-primary btn-lg"id="btnAmuse" value="Tell me a joke">Amuse me</button>
+                </div>
             </div>
         </form>
-
-            <form action="GET" id="specific_joke" class="row validation" novalidate> 
-                <div class="specific_joke">
-                    <label for=" joke_id"> INPUT JOKE ID</label>
-                    <input type="number" min="0" id="joke_id" name="joke_id" required >
-                </div>
-                
-                <div class="specific_joke">
-                    <button class="btn btn secoondary" type="button" name="specific_joke" value="specific_joke"
-                    onClick ="requestSpecificJoke()"> Get specific a joke
-
-                    </button>
-
-
-                </div>
-
-            </form>
-
-            <div id="msg"  class="row">
-
-            </div>
+        <div id="jokes">
+            <!-- This is a placeholder for jokes -->
+        
+        </div>
     </div>
-    <div class="container">
-    <div class="text" id="answer"> </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </body>
+    
+</body>
 
 </html>
