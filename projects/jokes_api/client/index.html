@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+        <head>
+
+
+
+        <script src="script.js"></script>
+        </head>
+
+
+
+    <body>
+        <div class="container"> 
+            <h1> WELCOME JOKER!</h1>
+        </div>
+
+
+        <div class="container" >
+        <form accept="GET" id="random_joke" class="row">
+
+            <div>
+                <button class="btn btn secondary" type="button" name="random_joke" value="random_joke" 
+
+                    onClick ="requestRandomJoke()"> Get some random joke
+
+
+                </button>
+            </div>
+        </form>
+
+            <form action="GET" id="specific_joke" class="row validation" novalidate> 
+                <div class="specific_joke">
+                    <label for=" joke_id"> INPUT JOKE ID</label>
+                    <input type="number" min="0" id="joke_id" name="joke_id" required >
+                </div>
+                
+                <div class="specific_joke">
+                    <button class="btn btn secoondary" type="button" name="specific_joke" value="specific_joke"
+                    onClick ="requestSpecificJoke()"> Get specific a joke
+
+                    </button>
+
+
+                </div>
+
+            </form>
+
+            <div id="msg"  class="row">
+
+            </div>
+    </div>
+    <div class="container">
+    <div class="text" id="answer"> </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
