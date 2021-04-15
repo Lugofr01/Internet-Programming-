@@ -5,49 +5,31 @@ jokes api
 import json
 import pyjokes
 from flask import Flask, jsonify, Response
-from flask_cors import CORS,cross_origin
-
 import random
-
 
 app = Flask(__name__)
 
-CORS(app)
-
 jokelist = []
 
-#not sure on how to structure this 
-@app.route("/api/v1/jokes")
+@app.route("/api/v1/jokes/<language>/<category>/<int:number>")
+def push_joke(language,category,number):
+    anyjoke = pyjokes.get_jokes(language=language, category=category)
+    p = {}
+    y ={}
+    for x in range(len(anyjoke)):
+        y[x]=anyjoke[x]
+    for z in range(number):
+        p[z]=y[z]
+    sortedJokes = jsonify(p)
+    return sortedJokes
 
-@cross_origin()
-def push_joke():
-    return jsonify(anyjoke = pyjokes.get_jokes(language="en", category="all"))
-
-
-
-
-#not sure on how to structure this 
-@app.route("/api/v1/jokes/<int:joke_id>",methods = ["GET"])
-@cross_origin()
-
-def supply_specific_joke(joke_id:int):
-    global jokelist
-    print(len(jokelist))
-
-    if not jokelist:
-        jokelist = pyjokes.get_jokes(language="en",category="all")
-    if joke_id < len(jokelist):
-        return jsonify(specific_joke= jokelist[joke_id])
-
-    return jsonify(specific_joke = jokelist[joke_id%len(jokelist)])
-
-
-  
-
-
-if __name__ == "__main__":
+@app.route("/api/v1/jokes/<language>/<category>/<int:number>/<int:joke_id>")
+def supply_specific_joke(language,category,number,joke_id):
+    jokelist = pyjokes.get_jokes(language=language,category=category)
+    return jsonify(jokelist[joke_id])
     
-    app.run
+if __name__ == "__main__":
+    app.run()
 
 
 
