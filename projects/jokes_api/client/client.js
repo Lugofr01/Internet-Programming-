@@ -22,6 +22,5 @@ async function getJokes(){
     row.appendChild(td);
     }
 
-
 }
     
