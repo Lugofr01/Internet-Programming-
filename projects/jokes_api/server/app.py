@@ -21,6 +21,8 @@ def push_joke(language,category,number):
     for z in range(number):
         p[z]=y[z]
     sortedJokes = jsonify(p)
+    sortedJokes.headers["Access-Control-Allow-Origin"] = "*"
+    sortedJokes.headers["Content-Type"] = "application/json"
     return sortedJokes
 
 @app.route("/api/v1/jokes/<language>/<category>/<int:number>/<int:joke_id>")
