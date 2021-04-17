@@ -1,12 +1,14 @@
 <html>
   <head>
+    <link href ="static/css/bootstrap.min.css" rel ="stylesheet" type = "text/css">
+    <script src = "static/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div>
-      <div>
-        <div><a href="/country"> <button type="button" class="  btn btn-link btn-primary">Country info</button></a></div>
-        <div><a href="/region"><button type="button" class="  btn btn-link btn-primary">Region info</button></a></div>
-        <div><a href="/continent"><button type="button" class="  btn btn-link btn-primary">Continent</button></a></div>
+      <div class="btn-toolbar">
+        <div><a href="/country"> <button type="button" class=" btn-primary">Country info</button></a></div>
+        <div><a href="/region"><button type="button" class=" btn-primary">Region info</button></a></div>
+        <div><a href="/continent"><button type="button" class="btn-primary">Continent</button></a></div>
       </div>
     </div>
     {% block content %} {% endblock %}
