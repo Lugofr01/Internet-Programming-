@@ -24,24 +24,55 @@ def get_data_from_db(host: str, port: int, user: str, dbname: str, query: str) -
 @app.route("/", methods=["GET", "POST"])
 def index():
     global CACHE
+
     if request.method == "GET":
-        # display links to 3 options (country / region / continent)
-        if request.method == "GET":
             return render_template("base.html")
-        if request.form.get("country"):
-            country = request.form.get("country")
-            if country in CACHE:
-                result = CACHE[country]
+
+    if request.form.get("country"):
+        country = request.form.get("country")
+        if country in CACHE:
+            result = CACHE[country]
             else:
                 result = get_data_from_db(
                     host="localhost",
                     port=2345,
-                    user="yasiro01",
+                    user="lugofr01",
                     dbname="world",
                     query=f"select * from country where code = '{country}';",
                 )
                 CACHE[country] = result
-        return render_template("result.html", rows=result)
+            return render_template("result.html", rows=result)
+
+    if request.form.get("region"):
+        region = request.form.get("region")
+        if region in CACHE:
+            result = CACHE[region]
+            else:
+                result = get_data_from_db(
+                    host="localhost",
+                    port=2345,
+                    user="lugofr01",
+                    dbname="world",
+                    query=f"select * from country where code = '{region}';",
+                )
+                CACHE[region] = result
+            return render_template("result.html", rows=result)
+
+    if request.form.get("continent"):
+        continent = request.form.get("continent")
+        if continent in CACHE:
+            result = CACHE[continent]
+            else:
+                result = get_data_from_db(
+                    host="localhost",
+                    port=2345,
+                    user="lugofr01",
+                    dbname="world",
+                    query=f"select * from country where code = '{continent}';",
+                )
+                CACHE[continent] = result
+            return render_template("result.html", rows=result)
+    
 
 @app.route("/<string:scope>", methods=["GET"])
 def search(scope: str):
@@ -56,15 +87,11 @@ def search(scope: str):
             query="select code, name from country"
 
         )
-
     return render_template("country.html",options = THE_WORLD)
 
-
-        pass
     elif scope == "region":
         # get regions from the database and populate options of the drop-down menu
-
-         global THE_WORLD1
+        global THE_WORLD1
         THE_WORLD1 = get_data_from_db(
             host="localhost",
             port ="2345",
@@ -73,7 +100,6 @@ def search(scope: str):
             query="select code, name from country"
 
         )
-
     return render_template("region.html",options = THE_WORLD1)
 
         
@@ -89,7 +115,6 @@ def search(scope: str):
             query="select code, name from country"
 
         )
-
     return render_template("continent.html",options = THE_WORLD2)
 
         
