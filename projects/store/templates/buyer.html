@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+.first{
+
+    margin-left: 10cm;
+
+}
+div.fixed {
+  position: absolute;
+
+  bottom: 10px;
+  border: 3px solid #8AC007;
+  margin: auto;
+  width: 95%;
+  border: 3px solid green;
+  padding: 10px;
+  margin-right: 5cm;
+  margin-bottom: 5.5cm;
+} 
+
+div.buyer{
+position: absolute;
+
+bottom: 10px;
+border: 3px solid #8AC007;
+margin: auto;
+width: 95%;
+border: 3px solid green;
+padding: 10px;
+margin-right: 5cm;
+margin-bottom: 0.5cm;
+
+}
+
+#tot_amount{
+
+    width: 50px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.position-static p-3 border{
+    margin-top: 2cm;
+}
+
+
+
+.credit{
+    margin-bottom: 3.5cm;
+}
+</style>
+</head>
+
+                        <div id="name" class="position-static p-3 border">
+
+
+                            <form action="/action_page.php">
+                                <label for="fname" >Purchaser Name:</label>
+                                <input type="text" id="fname" name="fname"><br><br>
+                                
+                            </form>
+                        </div>
+<div>  
+                            <h2 class="text-center">Script Order form</h2>
+                        <div class="float-left p-3 border">
+                                <table> 
+                            
+                                        <tr>
+                                            <th>Merchant</th>
+                                            <th>Denomination</th>
+                                            <th> Quantity</th>
+                                            <th> Amount</th>
+                                        </tr>
+                                    
+                                <tr>
+                                    <td>A&W /LIS 10% (Sold as LIS Card)</td>
+                                    <td><input type="number" id="denom1" name="tentacles"
+                                        min="10" max="100"></td>>
+
+                                    <td><input class="tent" type="number" id="tentacles1" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount()"></td>
+                                    <td><input class="venv" name="tot_amount" id="tot_amount1" type="text" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Ace 10%</td>
+                                    <td><input type="number" id="denom2" name="tentacles"
+                                        min="10" max="100"></td>>
+
+                                    <td><input class="tent" type="number" id="tentacles2" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount1()" ></td>
+                                    <td><input  class="venv" name="tot_amount" id="tot_amount2" type="text" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Casey's 3% </td>
+                                    <td><input type="number" id="denom3" name="tentacles"
+                                        min="10" max="100""></td>
+
+                                    <td><input class="tent" type="number" id="tentacles3" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount2()"></td>
+
+                                    <td><input class="venv" name="tot_amount" id="tot_amount3" type="text" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Fareway 3 %</td>
+                                    <td><input type="number" id="denom4" name="tentacles"
+                                        min="10" max="100"></td>>
+
+                                    <td><input class="tent" type="number" id="tentacles4" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount3()"></td>
+                                    <td><input class="venv" name="tot_amount" id="tot_amount4" type="text" readonly></td>
+                                </tr>
+                                <tr>
+                                        <td>Fisk's 5%</td>
+                                        <td><input type="number" id="denom5" name="tentacles"
+                                            min="10" max="100"></td>
+
+                                        <td><input class="tent" type="number" id="tentacles5" name="tentacles"
+                                                min="10" max="100" onblur="calculateAmount4()"></td>
+
+                                        <td><input class="venv"  name="tot_amount" id="tot_amount5" type="text" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Dollar fresh 3%</td>
+                                    <td><input type="number" id="denom6" name="tentacles"
+                                        min="10" max="100"></td>>
+
+                                    <td><input class="tent" type="number" id="tentacles6" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount5()"></td>
+                                    <td><input class="venv" name="tot_amount" id="tot_amount6" type="text" readonly></td>
+                                </tr>
+                                </table>
+                        </div>
+
+                        <div class="float-right p-3 border" id="first">
+                            <table>
+                            <tr>
+                                <th>Merchant</th>
+                                <th>Denomination</th>
+                                <th> Quantity</th>
+                                <th> Amount</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>KWIK Star </td>
+                                <td><input type="number" id="denom7" name="tentacles"
+                                    min="10" max="100"></td>>
+
+                                <td><input class="tent" type="number" id="tentacles7" name="tentacles"
+                                        min="10" max="100" onblur="calculateAmount6()"></td>
+                                <td> <input class="venv" name="tot_amount" id="tot_amount7" type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Pinters 3% </td>
+                                <td><input type="number" id="denom8" name="tentacles"
+                                    min="10" max="50"></td>>
+
+                                <td><input class="tent" type="number" id="tentacles8" name="tentacles"
+                                        min="10" max="100" onblur="calculateAmount7()"></td>
+                                <td><input class="venv" name="tot_amount" id="tot_amount8" type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Casey's 3% </td>
+                                <td><input type="number" id="denom9" name="tentacles"
+                                    min="10" max="100"></td>
+                                <td><input class="tent"  type="number" id="tentacles9" name="tentacles"
+                                        min="10" max="100" onblur="calculateAmount8()"></td>
+
+                                <td><input class="venv" name="tot_amount" id="tot_amount9" type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Subway 5 %</td>
+                                <td><input class="tent" type="number" id="denom10" name="tentacles"
+                                    min="10" max="100"></td>>
+
+                                <td><input class="tent" type="number" id="tentacles10" name="tentacles"
+                                        min="10" max="100" onblur="calculateAmount9()"></td>
+                                <td><input class="venv" name="tot_amount" id="tot_amount10" type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                    <td>Sue- Z -Q     5%</td>
+                                    <td><input type="number" id="denom11" name="tentacles"
+                                        min="10" max="100"></td>
+
+                                    <td><input class="tent" type="number" id="tentacles11" name="tentacles"
+                                            min="10" max="100" onblur="calculateAmount10()"></td>
+
+                                    <td><input class="venv" name="tot_amount" id="tot_amount11" type="text" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Atomic 3%</td>
+                                <td><input type="number" id="denom12" name="tentacles"
+                                    min="10" max="100" ></td>>
+
+                                <td><input class="tent" type="number" id="tentacles12" name="tentacles"
+                                        min="10" max="100" onblur="calculateAmount11()"></td>
+                                <td><input class="venv"  name="tot_amount" id="tot_amount12" type="text" readonly></td>
+                            </tr>
+                            
+                            </table>
+                            
+                        </div>
+
+                            <div class="fixed"> Total<input class="joj" > Total Due <input style="width: 115px;;" class="tot" name="tot_amount" id="tot_amount" type="text" readonly>  X 1% Purchaser Discretion <input class="mom"> 
+                            </div>
+
+                            
+                                <div class="buyer">  
+                                <table style="width:100%">
+                                    <tr>
+                                    <th>Purchaser Discretion(Choose only one)</th>
+                                    </tr>
+                                  
+                                  <tr>
+                                    <td> <input type="checkbox" id="cash" name="cash" value="cash"> Tuition Credit for <input>
+                                    
+                                    List Student or family above . Credit applied to following tutiton annualy in July. NO REFUNDS . Unused credit can be applied to another student's tuition or donated </td>
+                                    <td><input type="checkbox" id="cash" name="cash" value="cash"> Donation for</td>
+                                    <td><input type="checkbox" id="cash" name="cash" value="cash">Adopt a student Fund</td>
+                                  </tr>
+                                  
+                                </table>
+
+
+                                
+
+                            </div>
+                            
+                            </div>
+                            
+
+
+</div>
+<script>
+    function calculateAmount() {
+        var total = parseInt(document.getElementById("denom1").value);
+        var qty = parseInt(document.getElementById("tentacles1").value);
+        document.getElementById("tot_amount1").value = total*qty;
+        // var tot_price = val * denom;
+        // /*display the result*/
+        // var divobj = document.getElementById('tot_amount');
+        // divobj.value = tot_price;
+    
+
+
+        
+    }
+
+    function calculateAmount1() {
+        var total = parseInt(document.getElementById("denom2").value);
+        var qty = parseInt(document.getElementById("tentacles2").value);
+        document.getElementById("tot_amount2").value = total*qty;
+        
+
+    }
+
+    function calculateAmount2() {
+        var total = parseInt(document.getElementById("denom3").value);
+        var qty = parseInt(document.getElementById("tentacles3").value);
+        document.getElementById("tot_amount3").value = total*qty;
+        
+
+    }
+    function calculateAmount3() {
+        var total = parseInt(document.getElementById("denom4").value);
+        var qty = parseInt(document.getElementById("tentacles4").value);
+        document.getElementById("tot_amount4").value = total*qty;
+        
+
+    }
+    function calculateAmount4() {
+        var total = parseInt(document.getElementById("denom5").value);
+        var qty = parseInt(document.getElementById("tentacles5").value);
+        document.getElementById("tot_amount5").value = total*qty;
+        
+
+    }
+    function calculateAmount5() {
+        var total = parseInt(document.getElementById("denom6").value);
+        var qty = parseInt(document.getElementById("tentacles6").value);
+        document.getElementById("tot_amount6").value = total*qty;
+        
+
+    }
+    function calculateAmount6() {
+        var total = parseInt(document.getElementById("denom7").value);
+        var qty = parseInt(document.getElementById("tentacles7").value);
+        document.getElementById("tot_amount7").value = total*qty;
+        
+
+    }
+    function calculateAmount7() {
+        var total = parseInt(document.getElementById("denom8").value);
+        var qty = parseInt(document.getElementById("tentacles8").value);
+        document.getElementById("tot_amount8").value = total*qty;
+        
+
+    }
+    function calculateAmount8() {
+        var total = parseInt(document.getElementById("denom9").value);
+        var qty = parseInt(document.getElementById("tentacles9").value);
+        document.getElementById("tot_amount9").value = total*qty;
+        
+
+    }
+    function calculateAmount9() {
+        var total = parseInt(document.getElementById("denom10").value);
+        var qty = parseInt(document.getElementById("tentacles10").value);
+        document.getElementById("tot_amount10").value = total*qty;
+        
+
+    }
+    function calculateAmount10() {
+        var total = parseInt(document.getElementById("denom11").value);
+        var qty = parseInt(document.getElementById("tentacles11").value);
+        document.getElementById("tot_amount11").value = total*qty;
+        
+
+    }
+    function calculateAmount11() {
+        var total = parseInt(document.getElementById("denom12").value);
+        var qty = parseInt(document.getElementById("tentacles12").value);
+        document.getElementById("tot_amount12").value = total*qty;
+        
+
+    }
+
+    function total(){
+            var func = 0;
+            $('.tent').each(function(){
+                func += Number($(this).val());
+            });
+            $('.joj').val(func)
+        }
+        var waitTime;
+        $(document).ready(function(){
+            waitTime = setInterval("total()", 125);
+     });
+
+
+
+    function total1(){
+            var func = 0;
+            $('.venv').each(function(){
+                func += Number($(this).val());
+            });
+            $('.tot').val(func)
+        }
+        var waitTime;
+        $(document).ready(function(){
+            waitTime = setInterval("total1()", 125 );
+     });
+     function discretion(){
+            ($('.mom').val($('.tot').val()* 0.01)).toFixed(2); 
+        }
+        var waitTime;
+        $(document).ready(function(){
+            waitTime = setInterval("discretion()", 125 );
+     });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

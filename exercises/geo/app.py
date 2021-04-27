@@ -26,7 +26,7 @@ def index():
     global CACHE
 
     if request.method == "GET":
-            return render_template("base.html")
+            return render_template("index.html")
 
     if request.form.get("country"):
         country = request.form.get("country")
@@ -53,7 +53,7 @@ def index():
                 port=2345,
                 user="lugofr01",
                 dbname="world",
-                query=f"select * from country where code = '{region}';",
+                query=f"select * from country where region = '{region}';",
             )
             CACHE[region] = result
         return render_template("result.html", rows=result)
@@ -68,7 +68,7 @@ def index():
                 port=2345,
                 user="lugofr01",
                 dbname="world",
-                query=f"select * from country where code = '{continent}';",
+                query=f"select * from country where continent = '{continent}';",
             )
             CACHE[continent] = result
         return render_template("result.html", rows=result)
@@ -76,45 +76,49 @@ def index():
 
 @app.route("/<string:scope>", methods=["GET"])
 def search(scope: str):
+
+    global THE_WORLD
+    global THE_WORLD1
+    global THE_WORLD2
+
+
     if scope == "country":
         # get countries from the database and populate options of the drop-down menu
-        global THE_WORLD
-        THE_WORLD = get_data_from_db(
-            host="localhost",
-            port ="2345",
-            user= "lugofr01",
-            dbname="world",
-            query="select code, name from country"
+        if not THE_WORLD:
+            THE_WORLD = get_data_from_db(
+                host="localhost",
+                port ="2345",
+                user= "lugofr01",
+                dbname="world",
+                query="select code, name from country"
 
-        )
-    return render_template("country.html",options = THE_WORLD)
+            )
+        return render_template("country.html",options = THE_WORLD)
 
     if scope == "region":
         # get regions from the database and populate options of the drop-down menu
-        global THE_WORLD1
-        THE_WORLD1 = get_data_from_db(
-            host="localhost",
-            port ="2345",
-            user= "lugofr01",
-            dbname="world",
-            query="select code, name from country"
+        if not THE_WORLD1:
+            THE_WORLD1 = get_data_from_db(
+                host="localhost",
+                port ="2345",
+                user= "lugofr01",
+                dbname="world",
+                query="select distinct region from country"
 
-        )
-    return render_template("region.html",options = THE_WORLD1)
+            )
+        return render_template("region.html",options = THE_WORLD1)
 
         
     if scope == "continent":
-
         # get continents from the database and populate options of the drop-down menu
-        global THE_WORLD2
-        THE_WORLD2 = get_data_from_db(
-            host="localhost",
-            port ="2345",
-            user= "lugofr01",
-            dbname="world",
-            query="select code, name from country"
-
-        )
-    return render_template("continent.html",options = THE_WORLD2)
+        if not THE_WORLD2:
+            THE_WORLD2 = get_data_from_db(
+                host="localhost",
+                port ="2345",
+                user= "lugofr01",
+                dbname="world",
+                query="select distinct continent from country"
+            )
+        return render_template("continent.html",options = THE_WORLD2)
 
         
