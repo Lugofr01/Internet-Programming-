@@ -121,15 +121,23 @@ app = Flask(__name__)
 
 import sqlite3
 
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('/home/lugofr01/lugofr01/projects/fundraiser/database.db')
 print ("Opened database successfully");
-#conn.execute('CREATE TABLE PurchaseRecords (buyer TEXT, date TEXT, totalCards INT, totalDue INT, discretion INT)')
-#print ("Table created successfully");
-#conn.close()
+
 
 @app.route("/")
 def index():
     return render_template("buyer.html")
+
+@app.route("/admin")
+def admin():
+    dbsession = sql.connect('/home/lugofr01/lugofr01/projects/fundraiser/database.db')        
+    dbsession.row_factory = sql.Row
+    dbexecute = dbsession.cursor()
+    dbexecute.execute("select * from PurchaseRecords")
+    rowData = dbexecute.fetchall();
+    return render_template("results.html", rowData=rowData)   
+    frank.close()
 
 @app.route("/info", methods=['POST', 'GET'])
 def info():
@@ -140,20 +148,18 @@ def info():
         totalamount = request.form.get('tot_due')
         Discretion = request.form.get('dis')
                 
-        with sql.connect('database.db') as frank:
+        with sql.connect('/home/lugofr01/lugofr01/projects/fundraiser/database.db') as frank:
             conn = frank.cursor()
             conn.execute("INSERT INTO PurchaseRecords (buyer,date,totalCards,totalDue,discretion) VALUES (?,?,?,?,?)",(pur,date,totaqty,totalamount,Discretion))
             frank.commit()
             
+    info = "Purchase Complete"
+
+    return render_template("msg.html", info=info)
+    frank.close()
 
     
-    dbsession = sql.connect('database.db')        
-    dbsession.row_factory = sql.Row
-    dbexecute = dbsession.cursor()
-    dbexecute.execute("select * from PurchaseRecords")
-    rowData = dbexecute.fetchall();
-    return render_template("results.html", rowData=rowData)
-    frank.close()
+   
 
 if __name__ == "__main__":
     app.run()
