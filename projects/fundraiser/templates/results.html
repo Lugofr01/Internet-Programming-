@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+</head>
+   <body>
+   
+      <table  class = "mui-table mui-table--bordered">
+         <thead>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Total Cards</th>
+            <th>Amount Due</th>
+            <th>Discretion</th>
+           
+         </thead>
+         
+         {% for rows in rowData %}
+            <tr>
+               <td>{{rows["buyer"]}}</td>
+               <td>{{rows["date"]}}</td>
+               <td>{{rows['totalCards']}}</td>
+               <td>{{rows['totalDue']}}</td>
+               <td>{{rows['discretion']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>

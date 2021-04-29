@@ -71,18 +71,30 @@ tr:nth-child(even) {
 }
 </style>
 </head>
+<body>
+<form action = "{{ url_for('info') }}" method="POST">
 
+    <div class="float-right position-static p-3 border ">  
+        <input type="date" id="start" name="trip-start"
+       >
+
+    </div>
                         <div id="name" class="position-static p-3 border">
 
 
-                            <form>
+                           
                                 <label for="fname" >Purchaser Name:</label>
                                 <input type="text" id="fname" name="fname"><br><br>
-                                
-                            </form>
+
+                        
+                        
+                    
+                            
                         </div>
 <div>  
                             <h2 class="text-center">Script Order form</h2>
+
+             
                         <div class="float-left p-3 border">
                                 <table> 
                             
@@ -95,59 +107,60 @@ tr:nth-child(even) {
                                     
                                 <tr>
                                     <td>A&W /LIS 10% (Sold as LIS Card)</td>
-                                    <td><input type="number" id="denom1" name="tentacles"
+                                    <td><input type="number" id="denom1" name="AWSdenom"
                                         min="10" max="100"></td>>
 
-                                    <td><input class="tent" type="number" id="tentacles1" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles1" name="AWSqty"
                                             min="10" max="100" onblur="calculateAmount()"></td>
                                     <td><input class="venv" name="tot_amount" id="tot_amount1" type="text" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Ace 10%</td>
-                                    <td><input type="number" id="denom2" name="tentacles"
+                                    <td><input type="number" id="denom2" name="Acedenom"
                                         min="10" max="100"></td>>
 
-                                    <td><input class="tent" type="number" id="tentacles2" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles2" name="Aceqty"
                                             min="10" max="100" onblur="calculateAmount1()" ></td>
-                                    <td><input  class="venv" name="tot_amount" id="tot_amount2" type="text" readonly></td>
+                                    <td><input  class="venv" name="tot_amount1" id="tot_amount2" type="text" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Casey's 3% </td>
-                                    <td><input type="number" id="denom3" name="tentacles"
+                                    <td><input type="number" id="denom3" name="Caseydenom"
                                         min="10" max="100""></td>
 
-                                    <td><input class="tent" type="number" id="tentacles3" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles3" name="Caseyqty"
                                             min="10" max="100" onblur="calculateAmount2()"></td>
 
-                                    <td><input class="venv" name="tot_amount" id="tot_amount3" type="text" readonly></td>
+                                    <td><input class="venv" name="tot_amount2" id="tot_amount3" type="text" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Fareway 3 %</td>
-                                    <td><input type="number" id="denom4" name="tentacles"
+                                    <td><input type="number" id="denom4" name="Farewaydenom"
                                         min="10" max="100"></td>>
 
-                                    <td><input class="tent" type="number" id="tentacles4" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles4" name="Farewayqty"
                                             min="10" max="100" onblur="calculateAmount3()"></td>
-                                    <td><input class="venv" name="tot_amount" id="tot_amount4" type="text" readonly></td>
+
+                                    <td><input class="venv" name="tot_amount3" id="tot_amount4" type="text" readonly></td>
                                 </tr>
                                 <tr>
                                         <td>Fisk's 5%</td>
-                                        <td><input type="number" id="denom5" name="tentacles"
+                                        <td><input type="number" id="denom5" name="Fiskdenom"
                                             min="10" max="100"></td>
 
-                                        <td><input class="tent" type="number" id="tentacles5" name="tentacles"
+                                        <td><input class="tent" type="number" id="tentacles5" name="Fiskqty"
                                                 min="10" max="100" onblur="calculateAmount4()"></td>
 
-                                        <td><input class="venv"  name="tot_amount" id="tot_amount5" type="text" readonly></td>
+                                        <td><input class="venv"  name="tot_amount4" id="tot_amount5" type="text" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Dollar fresh 3%</td>
-                                    <td><input type="number" id="denom6" name="tentacles"
+                                    <td><input type="number" id="denom6" name="Dollardenom"
                                         min="10" max="100"></td>>
 
-                                    <td><input class="tent" type="number" id="tentacles6" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles6" name="Dollarqty"
                                             min="10" max="100" onblur="calculateAmount5()"></td>
-                                    <td><input class="venv" name="tot_amount" id="tot_amount6" type="text" readonly></td>
+                                    <td><input class="venv" name="tot_amount5" id="tot_amount6" type="text" readonly></td>
                                 </tr>
                                 </table>
                         </div>
@@ -163,65 +176,66 @@ tr:nth-child(even) {
                             
                             <tr>
                                 <td>KWIK Star </td>
-                                <td><input type="number" id="denom7" name="tentacles"
+                                <td><input type="number" id="denom7" name="KWIKdenom"
                                     min="10" max="100"></td>>
 
-                                <td><input class="tent" type="number" id="tentacles7" name="tentacles"
+                                <td><input class="tent" type="number" id="tentacles7" name="KWIKqty"
                                         min="10" max="100" onblur="calculateAmount6()"></td>
-                                <td> <input class="venv" name="tot_amount" id="tot_amount7" type="text" readonly></td>
+                                <td> <input class="venv" name="tot_amount6" id="tot_amount7" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>Pinters 3% </td>
-                                <td><input type="number" id="denom8" name="tentacles"
+                                <td><input type="number" id="denom8" name="Pintersdenom"
                                     min="10" max="50"></td>>
 
-                                <td><input class="tent" type="number" id="tentacles8" name="tentacles"
+                                <td><input class="tent" type="number" id="tentacles8" name="Pintersqty"
                                         min="10" max="100" onblur="calculateAmount7()"></td>
-                                <td><input class="venv" name="tot_amount" id="tot_amount8" type="text" readonly></td>
+                                <td><input class="venv" name="tot_amount7" id="tot_amount8" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>Casey's 3% </td>
-                                <td><input type="number" id="denom9" name="tentacles"
+                                <td><input type="number" id="denom9" name="Caseydenom1"
                                     min="10" max="100"></td>
-                                <td><input class="tent"  type="number" id="tentacles9" name="tentacles"
+                                <td><input class="tent"  type="number" id="tentacles9" name="Caseyqty1"
                                         min="10" max="100" onblur="calculateAmount8()"></td>
 
-                                <td><input class="venv" name="tot_amount" id="tot_amount9" type="text" readonly></td>
+                                <td><input class="venv" name="tot_amount8" id="tot_amount9" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>Subway 5 %</td>
-                                <td><input class="tent" type="number" id="denom10" name="tentacles"
+                                <td><input class="tent" type="number" id="denom10" name="Subwaydenom"
                                     min="10" max="100"></td>>
 
-                                <td><input class="tent" type="number" id="tentacles10" name="tentacles"
+                                <td><input class="tent" type="number" id="tentacles10" name="Subwayqty"
                                         min="10" max="100" onblur="calculateAmount9()"></td>
-                                <td><input class="venv" name="tot_amount" id="tot_amount10" type="text" readonly></td>
+                                <td><input class="venv" name="tot_amount9" id="tot_amount10" type="text" readonly></td>
                             </tr>
                             <tr>
                                     <td>Sue- Z -Q     5%</td>
-                                    <td><input type="number" id="denom11" name="tentacles"
+                                    <td><input type="number" id="denom11" name="Suedenom"
                                         min="10" max="100"></td>
 
-                                    <td><input class="tent" type="number" id="tentacles11" name="tentacles"
+                                    <td><input class="tent" type="number" id="tentacles11" name="Sueqty"
                                             min="10" max="100" onblur="calculateAmount10()"></td>
 
-                                    <td><input class="venv" name="tot_amount" id="tot_amount11" type="text" readonly></td>
+                                    <td><input class="venv" name="tot_amount10" id="tot_amount11" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <td>Atomic 3%</td>
-                                <td><input type="number" id="denom12" name="tentacles"
+                                <td><input type="number" id="denom12" name="Atomicdenom"
                                     min="10" max="100" ></td>>
 
-                                <td><input class="tent" type="number" id="tentacles12" name="tentacles"
+                                <td><input class="tent" type="number" id="tentacles12" name="Atomicqty"
                                         min="10" max="100" onblur="calculateAmount11()"></td>
-                                <td><input class="venv"  name="tot_amount" id="tot_amount12" type="text" readonly></td>
+                                <td><input class="venv"  name="tot_amount11" id="tot_amount12" type="text" readonly></td>
                             </tr>
                             
                             </table>
                             
                         </div>
 
-                            <div class="fixed"> Total<input class="joj" > Total Due <input style="width: 115px;;" class="tot" name="tot_amount" id="tot_amount" type="text" readonly>  X 1% Purchaser Discretion <input class="mom"> 
+                            <div class="fixed"> 
+                                Total<input class="joj" name="jojo" > Total Due <input style="width: 115px;;" class="tot" name="tot_due" id="tot_amount" type="text" readonly>  X 1% Purchaser Discretion <input class="mom" name="dis"> 
                             </div>
 
                             
@@ -232,14 +246,14 @@ tr:nth-child(even) {
                                     </tr>
                                   
                                   <tr>
-                                    <td> <input type="checkbox" id="cash" name="cash" value="cash"> Tuition Credit for <input>
+                                    <td>  Tuition Credit for <input style="width: 115px;;" class="tuit" name="tuit1" id="cred" type="text">
                                     
                                     List Student or family above . Credit applied to following tutiton annualy in July. NO REFUNDS . Unused credit can be applied to another student's tuition or donated </td>
-                                    <td><input type="checkbox" id="cash" name="cash" value="cash"> Donation for</td>
-                                    <td><input type="checkbox" id="cash" name="cash" value="cash">Adopt a student Fund</td>
+                                   
                                   </tr>
                                   
                                 </table>
+                                
 
 
                                 
@@ -247,10 +261,15 @@ tr:nth-child(even) {
                             </div>
                             
                             </div>
+
+                            <input type="submit" value="Submit">
+
+</form>
                             
 
 
 </div>
+</body>
 <script>
     function calculateAmount() {
         var total = parseInt(document.getElementById("denom1").value);
@@ -389,6 +408,6 @@ tr:nth-child(even) {
 
 
 
-Sources:
+<!-- Sources: -->
 
 <!-- https://www.studentstutorial.com/javascript/auto-calculate-price-javascript -->
