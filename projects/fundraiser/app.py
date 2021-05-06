@@ -123,6 +123,9 @@ import sqlite3
 
 conn = sqlite3.connect('/home/lugofr01/lugofr01/projects/fundraiser/database.db')
 print ("Opened database successfully");
+conn.execute('CREATE TABLE Records (buyer TEXT, date TEXT, totalCards INT, totalDue INT, discretion INT)')
+print ("Table created successfully");
+conn.close()
 
 
 @app.route("/")
