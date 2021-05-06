@@ -150,15 +150,24 @@ def info2():
 
         pur2 = request.form.get('temail')
         
-    with sql.connect('database.db') as frank:
-        conn = frank.cursor()
-        conn.execute("INSERT INTO Gymnate (person2) VALUES (?)",(pur2))
-        frank.commit()
+        with sql.connect('database.db') as frank:
+            conn = frank.cursor()
+            conn.execute("INSERT INTO Gymnate (person2) VALUES (?)",(pur2,))
+            frank.commit()
         
     info = "Thank you for filling in the Workout form! Please Visit the Workout Recomendation section to get your desired workouts"
 
     return render_template("msg.html", info=info)
     frank.close()
+
+
+@app.route("/api")
+def api_func():
+    res = requests.get("http://lugola.pythonanywhere.com/api/v1/coreworkout")
+    response = res.json()
+    return render_template("api.html", data=response)
+
+
 
 
    

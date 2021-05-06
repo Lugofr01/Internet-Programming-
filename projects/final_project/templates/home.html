@@ -76,27 +76,11 @@
     </div>
 
 
-    <div style="position:absolute; left: 190px; top:30px;" class="gym">
+    
 
 
-        <label for="Workout" value="Workout" >Workout</label>
-        <select name="Workout" id="selwork">
-            <!-- TODO: Populate categories -->
-            <option value="upperbody" id="upper" >Upper Body</option>
-            <option value="coreworkout" id="core">Core Workout</option>
-            <option value="lowerbody" id="lower">Lower Body</option>
-            
-
-        </select>
-
-
-
-    </div>
-
-
-    <div style="position:absolute; left: 600px; top:600px;">
-        <button class="btn btn-primary btn-lg" onclick="getInfo()">Click Here to get Workouts</button>
-
+    <div style="position:absolute; left:450px;  width: 19cm;  top:300px;;">
+        <a href=/api  class="btn btn-primary active btn-block" role="button">GET RANDOM WORKOUT</a>
     </div>
 
 
@@ -105,28 +89,7 @@
 
 </div>
 </body>
-<script>
-const BASE_URL = ""
 
-async function getInfo() {
-
-    var Category =document.getElementById("selwork").value ;
-
-
-    var exercise= await fetch(`${BASE_URL}/${upper}/${core}/${lower}`).then(response => response.json());
-    console.log(exercise)
-    let row = document.querySelector("#results")
-    for (let idx in exercise){
-    let td = document.createElement("div");
-    td.innerHTML = exercise[idx];
-    row.appendChild(td);
-
-    }
-
-}
-
-
-</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
