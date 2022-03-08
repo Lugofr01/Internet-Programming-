@@ -1,1 +1,1 @@
-Internet Programming Repositiry for Frank Lugola.
+Internet Programming Repository for Frank Lugola.
