@@ -1,3 +1,1 @@
-# ip-class-pub
-
-CS330 public repository
+Internet Programming Repositiry for Frank Lugola.
